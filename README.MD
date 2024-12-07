@@ -179,5 +179,5 @@ Kullanıcıya kendi ID, isim, soyisim ve mail bilgilerini geri döner.
 
 
 ## **Postman İstekleri**
-![Postmandan Atılan Istekler](C:\Users\furka\OneDrive\PostmanRequests.png)   
+![PostmanRequests](https://github.com/user-attachments/assets/e4a54a31-c34e-4c63-b14c-88de2f62407f)  
 
