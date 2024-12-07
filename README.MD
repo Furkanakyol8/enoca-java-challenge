@@ -1,3 +1,41 @@
+# **Project Documentation - Proje Dökümanı**
+
+# **Proje Dosya Yapısı (Project Structure)**
+
+```plaintext
+enoca-java-challenge/
+│
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/
+│   │   │       └── furkan/
+│   │   │           └── enoca/
+│   │   │               ├── advice/           # Global Exception yakalayıcı
+│   │   │               ├── controller/       # API Controller sınıfları
+│   │   │               ├── exception/        # Custom Exception sınıfları
+│   │   │               ├── model/            # Entity sınıfları
+│   │   │               │   ├── dto/                # DTO (Data Transfer Object) sınıfları
+│   │   │               │   ├── entity/             # Entity sınıfları
+│   │   │               │   └── enums/              # Enum sınıfları
+│   │   │               ├── repository/       # JPA Repository sınıfları
+│   │   │               ├── service/          # Servis sınıfları (iş mantığı)
+│   │   │               ├── service/impl/     # Servis implementasyonları
+│   │   │               └── EnocaApplication.java  # Ana sınıf (main method)
+│   │   │
+│   │   ├── resources/
+│   │   │   ├── static/                       
+│   │   │   ├── templates/                     
+│   │   │   └── application.properties        # Uygulama ayarları (Veritabanı Bağlantıları)
+│   │
+├── .gitignore                               # Git tarafından yok sayılacak dosyalar
+├── mvnw                                     # Maven Wrapper (Windows için)
+├── mvnw.cmd                                 # Maven Wrapper (Linux/Mac için)
+├── pom.xml                                  # Maven bağımlılık dosyası
+└── README.md                                # Proje dokümantasyonu
+
+
+
 # **Services - Servisler**
 
 1. **User Service**
@@ -86,7 +124,7 @@
 
    Request: (POST) http://localhost:8080/auth/login
 
-2. **Me - Kendimi Bilgilerimi Göster**
+2. **Me - Kendi Bilgilerimi Göster**
 
    Request: (GET) http://localhost:8080/auth/me
    
