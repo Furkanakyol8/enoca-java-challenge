@@ -177,5 +177,7 @@ Email ve password bilgileriyle birlikte kullanıcı giriş yapar. Kullanıcı ID
 
 Kullanıcıya kendi ID, isim, soyisim ve mail bilgilerini geri döner.
 
-   
+
+## **Postman İstekleri**
+![Postmandan Atılan Istekler](C:\Users\furka\OneDrive\PostmanRequests.png)   
 
