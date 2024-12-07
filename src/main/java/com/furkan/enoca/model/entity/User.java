@@ -3,6 +3,8 @@ package com.furkan.enoca.model.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.SQLRestriction;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -18,6 +20,8 @@ import java.util.List;
 @EqualsAndHashCode(of = {}, callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
+@SQLRestriction("deleted_at is null")
+@SQLDelete(sql = "UPDATE users SET deleted_at = now() WHERE id = ?")
 public class User extends Base implements UserDetails {
 
     @Column(name = "first_name", nullable = false)
@@ -26,7 +30,7 @@ public class User extends Base implements UserDetails {
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @Column(name = "email", nullable = false)
+    @Column(name = "email", unique = true, nullable = false)
     private String email;
 
     @Column(name = "password", nullable = false)

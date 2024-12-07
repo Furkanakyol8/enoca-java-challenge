@@ -24,11 +24,14 @@ public class ProductDto {
 
     private LocalDateTime updatedAt;
 
+    private int stock;
+
     public ProductDto(Product product) {
         this.id = product.getId();
         this.name = product.getName();
         this.code = product.getCode();
         this.description = product.getDescription();
+        this.stock = product.getStock();
         this.unitPrice = product.getUnitPrice();
         this.createdAt = product.getCreatedAt();
         this.updatedAt = product.getUpdatedAt();

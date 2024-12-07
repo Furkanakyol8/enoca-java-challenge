@@ -19,7 +19,6 @@ public class AuthController {
         return ResponseEntity.ok(authService.login(loginRequest));
     }
 
-
     @GetMapping("/me")
     public ResponseEntity<UserDto> me(){
         return ResponseEntity.ok(authService.me());

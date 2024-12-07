@@ -1,9 +1,11 @@
 package com.furkan.enoca.model.entity;
 
-
 import com.furkan.enoca.exception.NotFoundException;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.SQLRestriction;
+import org.hibernate.annotations.Where;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -18,13 +20,15 @@ import java.util.UUID;
 @EqualsAndHashCode(of = {}, callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
+@SQLRestriction("deleted_at is null")
+@SQLDelete(sql = "UPDATE carts SET deleted_at = now() WHERE id = ?")
 public class Cart extends Base{
 
     @OneToOne
     @JoinColumn(name = "customer_id", referencedColumnName = "id")
     private Customer customer;
 
-    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     private List<CartItem> items = new ArrayList<>();
 
     @Column(nullable = false)

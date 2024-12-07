@@ -3,6 +3,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.SQLRestriction;
 import org.hibernate.annotations.Where;
 
 import java.time.LocalDateTime;
@@ -15,9 +16,7 @@ import java.util.UUID;
 @EqualsAndHashCode(of = {"id"})
 @Getter
 @Setter
-@Where(clause = "deleted_at is null")
 public abstract class Base {
-
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.UUID)

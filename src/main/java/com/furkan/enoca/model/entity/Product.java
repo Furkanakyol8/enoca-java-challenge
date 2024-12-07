@@ -1,13 +1,11 @@
 package com.furkan.enoca.model.entity;
 
-
 import com.furkan.enoca.exception.NotFoundException;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-
-import java.util.HashSet;
-import java.util.Set;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.SQLRestriction;
 
 @SuperBuilder
 @Entity
@@ -17,6 +15,8 @@ import java.util.Set;
 @EqualsAndHashCode(of = {}, callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
+@SQLRestriction("deleted_at is null")
+@SQLDelete(sql = "UPDATE products SET deleted_at = now() WHERE id = ?")
 public class Product extends Base {
 
     @Column(name = "name", nullable = false)

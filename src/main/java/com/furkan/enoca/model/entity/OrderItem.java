@@ -1,9 +1,10 @@
 package com.furkan.enoca.model.entity;
 
-import com.furkan.enoca.exception.NotFoundException;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.SQLRestriction;
 
 @SuperBuilder
 @Entity
@@ -13,6 +14,8 @@ import lombok.experimental.SuperBuilder;
 @EqualsAndHashCode(of = {}, callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
+@SQLRestriction("deleted_at is null")
+@SQLDelete(sql = "UPDATE order_items SET deleted_at = now() WHERE id = ?")
 public class OrderItem extends Base {
 
     @ManyToOne(fetch = FetchType.EAGER)

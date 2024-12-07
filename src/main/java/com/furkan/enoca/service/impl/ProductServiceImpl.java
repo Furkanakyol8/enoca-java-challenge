@@ -9,7 +9,6 @@ import com.furkan.enoca.repository.ProductRepository;
 import com.furkan.enoca.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
@@ -81,8 +80,6 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public void delete (UUID id) {
         Product foundProduct = productRepository.findById(id).orElseThrow(() -> new NotFoundException("Product not found with id " + id));
-        foundProduct.setDeletedAt(LocalDateTime.now());
-        productRepository.save(foundProduct);
+        productRepository.delete(foundProduct);
     }
-
 }

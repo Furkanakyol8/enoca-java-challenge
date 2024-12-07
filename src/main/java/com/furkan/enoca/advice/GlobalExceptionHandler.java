@@ -4,7 +4,6 @@ import com.furkan.enoca.exception.AlreadyExistException;
 import com.furkan.enoca.exception.CustomAuthenticationException;
 import com.furkan.enoca.exception.NotFoundException;
 import com.furkan.enoca.model.dto.ErrorResponse;
-import jakarta.validation.ValidationException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
